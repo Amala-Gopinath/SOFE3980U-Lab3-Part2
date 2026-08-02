@@ -5,6 +5,7 @@
 3. Configure a continuous integration pipeline for a Jenkins job. 
 4. Configure a continuous deployment pipeline for a Jenkins job.
 5. Testing webhook trigger working
+6. testing ci video 7
    
 
 ## Repository:   
