@@ -5,8 +5,8 @@
 3. Configure a continuous integration pipeline for a Jenkins job. 
 4. Configure a continuous deployment pipeline for a Jenkins job.
 5. Testing webhook trigger working
-6. testing ci video 2
-7. testing ci video part 3
+   
+
 ## Repository:   
 [https://github.com/zubxxr/SOFE3980U-Lab3-Part2](https://github.com/zubxxr/SOFE3980U-Lab3-Part2) 
 
