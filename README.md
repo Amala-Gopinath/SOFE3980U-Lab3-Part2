@@ -4,6 +4,7 @@
 2. Understand the pipeline syntax used by Jenkins.
 3. Configure a continuous integration pipeline for a Jenkins job. 
 4. Configure a continuous deployment pipeline for a Jenkins job.
+5. Testing webhook trigger
 ## Repository:   
 [https://github.com/zubxxr/SOFE3980U-Lab3-Part2](https://github.com/zubxxr/SOFE3980U-Lab3-Part2) 
 
