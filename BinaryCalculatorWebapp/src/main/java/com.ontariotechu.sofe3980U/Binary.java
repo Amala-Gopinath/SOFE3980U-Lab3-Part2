@@ -79,4 +79,84 @@ public class Binary
 		return result;
 		
 	}
-}	
+	/**
+	* Bitwise OR of two binary variables.
+	*
+	* @param num1 The first operand object
+	* @param num2 The second operand object
+	* @return A binary variable with a value of <i>num1 OR num2</i>.
+	*/
+	public static Binary or(Binary num1,Binary num2)
+	{
+		// the index of the first digit of each number
+		int ind1=num1.number.length()-1;
+		int ind2=num2.number.length()-1;
+		String num3="";  // the binary value of the result
+		while(ind1>=0 || ind2>=0) // loop until all digits are processed
+		{
+			int b1=(ind1>=0 && num1.number.charAt(ind1)=='1')? 1:0; // digit of num1, or 0 if none left
+			int b2=(ind2>=0 && num2.number.charAt(ind2)=='1')? 1:0; // digit of num2, or 0 if none left
+			int res=(b1==1 || b2==1)? 1:0; // OR of the two digits
+			num3=((res==0)? "0":"1")+num3; // append the result digit
+			ind1--; // update ind1
+			ind2--; // update ind2
+		}
+		Binary result=new Binary(num3);  // create a binary object with the calculated value.
+		return result;
+		
+	}
+	/**
+	* Bitwise AND of two binary variables.
+	*
+	* @param num1 The first operand object
+	* @param num2 The second operand object
+	* @return A binary variable with a value of <i>num1 AND num2</i>.
+	*/
+	public static Binary and(Binary num1,Binary num2)
+	{
+		// the index of the first digit of each number
+		int ind1=num1.number.length()-1;
+		int ind2=num2.number.length()-1;
+		String num3="";  // the binary value of the result
+		while(ind1>=0 || ind2>=0) // loop until all digits are processed
+		{
+			int b1=(ind1>=0 && num1.number.charAt(ind1)=='1')? 1:0; // digit of num1, or 0 if none left
+			int b2=(ind2>=0 && num2.number.charAt(ind2)=='1')? 1:0; // digit of num2, or 0 if none left
+			int res=(b1==1 && b2==1)? 1:0; // AND of the two digits
+			num3=((res==0)? "0":"1")+num3; // append the result digit
+			ind1--; // update ind1
+			ind2--; // update ind2
+		}
+		Binary result=new Binary(num3);  // create a binary object with the calculated value.
+		return result;
+		
+	}
+	/**
+	* Multiplying two binary variables using repeated shift-and-add.
+	*
+	* @param num1 The first factor object
+	* @param num2 The second factor object
+	* @return A binary variable with a value of <i>num1*num2</i>.
+	*/
+	public static Binary multiply(Binary num1,Binary num2)
+	{
+		Binary total=new Binary("0"); // running total, starts at zero
+		int len=num2.number.length();
+		for(int i=0;i<len;i++) // loop over each digit of num2, from least significant
+		{
+			char bit=num2.number.charAt(len-1-i); // the current digit of num2
+			if(bit=='1') // only add a shifted copy of num1 if this digit is 1
+			{
+				String temp=num1.number;
+				for(int j=0;j<i;j++) // shift left by appending i zeros
+				{
+					temp=temp+"0";
+				}
+				Binary temp2=new Binary(temp);
+				total=Binary.add(total,temp2); // add the shifted value to the running total
+			}
+		}
+		return total;
+		
+	}
+}
